@@ -21,8 +21,8 @@ public class ConsumoAPI {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
         String json = response.body();
         return json;
     }
 }
+/*26dd704c*/
