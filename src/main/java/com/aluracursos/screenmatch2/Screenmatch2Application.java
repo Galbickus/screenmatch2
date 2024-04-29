@@ -12,9 +12,9 @@ public class Screenmatch2Application implements CommandLineRunner {
 	}
 	@Override
 	public void run(String... args) throws Exception {
-/*		Principal principal = new Principal();
-		principal.muestraElMenu();*/
-		EjemploStreams ejemploStreams = new EjemploStreams();
-		ejemploStreams.muestraEjemplo();
+		Principal principal = new Principal();
+		principal.muestraElMenu();
+/*		EjemploStreams ejemploStreams = new EjemploStreams();
+		ejemploStreams.muestraEjemplo();*/
 	}
 }
