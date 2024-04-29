@@ -34,7 +34,7 @@ public class Principal {
         //Mostrar solo el tituulo de los episodios para las temporadas
         for (int i = 0; i < datos.totalDeTemporadas(); i++) {
             List<DatosEpisodio> episodiosTemporada = temporadas.get(i).episodios();
-            System.out.println("\nTemporada: " + i+ "\n");
+            System.out.println("\nTemporada: " + (i+1) + "\n");
             for (int j = 0; j < episodiosTemporada.size(); j++) {
                 System.out.println(episodiosTemporada.get(j).titulo());
             }
