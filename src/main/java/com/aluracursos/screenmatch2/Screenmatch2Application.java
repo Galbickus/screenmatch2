@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch2;
 
+import com.aluracursos.screenmatch2.model.DatosEpisodio;
 import com.aluracursos.screenmatch2.model.DatosSerie;
 import com.aluracursos.screenmatch2.service.ConsumoAPI;
 import com.aluracursos.screenmatch2.service.ConvierteDatos;
@@ -22,5 +23,9 @@ public class Screenmatch2Application implements CommandLineRunner {
 		ConvierteDatos conversor = new ConvierteDatos();
 		var datos = conversor.obtenerDatos(json, DatosSerie.class);
 		System.out.println(datos);
+		json = consumoApi.obtenerDatos("https://www.omdbapi.com/?t=Game+of+Thrones&Season=1&Episode=1&apikey=26dd704c");
+		//la nomenclatura de la instancia debería ser singular
+		DatosEpisodio episodios = conversor.obtenerDatos(json, DatosEpisodio.class);
+		System.out.println(episodios);
 	}
 }
