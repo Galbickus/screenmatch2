@@ -9,10 +9,7 @@ import com.aluracursos.screenmatch2.service.ConvierteDatos;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -82,12 +79,12 @@ public class Principal {
         System.out.println("");
         //busqueda de episodios a partir de un año indicado por el usuario
 
-        System.out.println("Busqueda por año. Indica el año");
-        var fecha = teclado.nextInt();
+        //System.out.println("Busqueda por año. Indica el año");
+        //var fecha = teclado.nextInt();
         // para que no de error borrar buffer
-        teclado.nextLine();
+        //teclado.nextLine();
 
-        LocalDate fechaBusqueda = LocalDate.of(fecha, 1, 1);
+        //LocalDate fechaBusqueda = LocalDate.of(fecha, 1, 1);
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 /*        episodios.stream()
@@ -100,8 +97,14 @@ public class Principal {
         //busca episodio por una partte del titulo
         System.out.println("Escriba el titulo");
         var pedazoTitulo = teclado.nextLine();
-        episodios.stream()
-                .filter(e->e.getTitulo().contains(pedazoTitulo))
+        Optional<Episodio> episodioBuscado = episodios.stream()
+                .filter(e -> e.getTitulo().toUpperCase().contains(pedazoTitulo.toUpperCase()))
                 .findFirst();
+        if(episodioBuscado.isPresent()){
+            System.out.println("Episodio encontrado");
+            System.out.println("Los datos son: " + episodioBuscado.get());
+        }else {
+            System.out.println("Episodio no encontrado");
+        }
     }
 }
