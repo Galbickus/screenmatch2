@@ -95,7 +95,8 @@ public class Principal {
                                 ", Fecha de Lanzamiento: " + e.getFechaDeLanzamiento().format(dtf)
                 ));*/
         //busca episodio por una partte del titulo
-        System.out.println("Escriba el titulo");
+
+/*        System.out.println("Escriba el titulo");
         var pedazoTitulo = teclado.nextLine();
         Optional<Episodio> episodioBuscado = episodios.stream()
                 .filter(e -> e.getTitulo().toUpperCase().contains(pedazoTitulo.toUpperCase()))
@@ -105,6 +106,12 @@ public class Principal {
             System.out.println("Los datos son: " + episodioBuscado.get());
         }else {
             System.out.println("Episodio no encontrado");
-        }
+        }*/
+
+        Map<Integer, Double> evaluacionesPorTemporada = episodios.stream()
+                .collect(Collectors.groupingBy(Episodio::getTemporada,
+                        Collectors.averagingDouble(Episodio::getEvaluacion)));
+        System.out.println(evaluacionesPorTemporada);
+
     }
 }
