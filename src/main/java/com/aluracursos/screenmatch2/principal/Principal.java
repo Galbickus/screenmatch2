@@ -125,6 +125,5 @@ public class Principal {
         System.out.println("-El episodio mejor evaluado es: " + est.getMax());
         System.out.println("-La cantidad de episodios evaluados es: " + est.getCount());
         System.out.println("-El episodio peor evaluado es: " + est.getMin());
-
     }
 }
