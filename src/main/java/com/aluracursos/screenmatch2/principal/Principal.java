@@ -97,5 +97,11 @@ public class Principal {
                                 ", Episodio: " + e.getTitulo() +
                                 ", Fecha de Lanzamiento: " + e.getFechaDeLanzamiento().format(dtf)
                 ));*/
+        //busca episodio por una partte del titulo
+        System.out.println("Escriba el titulo");
+        var pedazoTitulo = teclado.nextLine();
+        episodios.stream()
+                .filter(e->e.getTitulo().contains(pedazoTitulo))
+                .findFirst();
     }
 }
