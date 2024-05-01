@@ -108,11 +108,20 @@ public class Principal {
             System.out.println("Episodio no encontrado");
         }*/
 
+        /*Hace promedio de las evaluaciones de los
+        episodios para obtener evaluacione de las temporada*/
+
         Map<Integer, Double> evaluacionesPorTemporada = episodios.stream()
                 .filter(e->e.getEvaluacion()>0.0)
                 .collect(Collectors.groupingBy(Episodio::getTemporada,
                         Collectors.averagingDouble(Episodio::getEvaluacion)));
         System.out.println(evaluacionesPorTemporada);
+
+        //Estadisticas
+        DoubleSummaryStatistics est = episodios.stream()
+                .filter(e -> e.getEvaluacion() > 0.0)
+                .collect(Collectors.summarizingDouble(Episodio::getEvaluacion));
+        System.out.println(est);
 
     }
 }
